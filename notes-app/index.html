@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Layout</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <div class="brand">
+      <span>CHATEX</span>
+      <img src="app://C:/image-icon.png" alt="Image Icon">
+    </div>
+    <div class="navbar-buttons">
+      <button class="navbar-button">Settings</button>
+      <button class="navbar-button">Profile</button>
+      <button id="toggle-btn" onclick="toggleCodeOutput()">Toggle</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="text-input">
+      <textarea id="input-textarea" placeholder="Enter text"></textarea>
+    </div>
+    <div class="image-section">
+      <img src="app://C:/test.jpg" alt="Image">
+    </div>
+    <div class="code-output">
+      <textarea id="output-textarea" placeholder="Output text"></textarea>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

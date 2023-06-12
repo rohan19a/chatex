@@ -1,0 +1,114 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: #db694a;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.text-input {
+  flex: 1;
+  padding: 10px;
+}
+
+.text-input textarea {
+  width: 100%;
+  height: 90%;
+  resize: none;
+  border-radius: 10px;
+}
+
+.image-section {
+  flex: 1;
+  position: relative;
+}
+
+.image-section img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+}
+
+.code-output {
+  display: none;
+  padding: 10px;
+  transition: height 0.3s;
+  overflow: auto;
+  
+}
+
+.code-output.active {
+  width: 100%;
+  height: 90%; /* Set the height to match the text-input */
+  border-radius: 10px;
+
+}
+
+
+.toggle-button {
+  position: relative;
+  bottom: 10px;
+  right: 10px;
+}
+
+.toggle-button button {
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-button button.clicked {
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  background-color: #db694a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.brand {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navbar-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.navbar-button:hover {
+  text-decoration: underline;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand span {
+  margin-right: 10px; /* Adjust as needed */
+}
+
+.brand img {
+  height: 100%;
+}
