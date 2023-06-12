@@ -2,6 +2,7 @@ import openai
 import os
 from flask import Flask, request
 from cleaning_functions import remove_chatgpt_nonsense
+import jsonify
 
 #flash --app main run
 
@@ -34,9 +35,16 @@ def test():
     return "Hello World"
 
 @app.route('/post', methods=['POST'])
-def post():
-    print(request.json)
-    return "Hello World"
+def process_text():
+    data = request.get_json()
+    text = data.get('text')
+
+    # Perform some processing with the text
+    processed_text = text.upper()
+
+    # Return the processed text as a response
+    return jsonify({'result': processed_text})
+
 
 if __name__ == '__main__':
     app.run()

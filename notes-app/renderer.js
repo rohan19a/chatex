@@ -27,7 +27,7 @@ function sendTextToAPI() {
   const text = textarea.value;
 
   // Send the text to the backend API
-  fetch('http://localhost/api', {
+  fetch('http://127.0.0.1:5000/post', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -44,6 +44,24 @@ function sendTextToAPI() {
     });
 }
 
-// Attach an event listener to the textarea
 const textarea = document.getElementById('input-textarea');
-textarea.addEventListener('input', sendTextToAPI);
+let previousText = ''; // Store the previous text
+
+textarea.addEventListener('input', function(event) {
+  const text = event.target.value;
+  const periodIndex = text.lastIndexOf('.');
+
+  if (periodIndex !== -1) {
+    const newText = text.substring(periodIndex + 1); // Extract the new text
+    const sendData = previousText + newText; // Combine with previous text
+
+    // Send the extracted data to the API
+    sendTextToAPI(sendData);
+  } else {
+    // If no period exists, send the entire text
+    sendTextToAPI(text);
+  }
+
+  // Update the previous text for the next input event
+  previousText = text;
+});
