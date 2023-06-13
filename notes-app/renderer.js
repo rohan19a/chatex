@@ -46,25 +46,22 @@ function sendTextToAPI() {
     });
 }
 
-
-
-function latexToPdf() {
-  // Replace 'pythonFile.py' with the actual path to your Python file
-  const pythonProcess = spawn('python', ['python-scripts/generate.py']);
-
-  pythonProcess.stdout.on('data', (data) => {
-    console.log(`Python stdout: ${data}`);
-  });
-
-  pythonProcess.stderr.on('data', (data) => {
-    console.error(`Python stderr: ${data}`);
-  });
-
-  pythonProcess.on('close', (code) => {
-    console.log(`Python process exited with code ${code}`);
-  });
-
-  
+function generatePDF(latexCode) {
+  fetch('http://127.0.0.1:5000/generate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/text'
+    },
+    body: latexCode
+  })
+    .then(response => response.text())
+    .then(pdfUrl => {
+      console.log('PDF URL:', pdfUrl);
+      // Perform any further actions with the PDF URL
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }
 
 
