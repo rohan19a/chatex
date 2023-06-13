@@ -34,6 +34,7 @@ const createWindow = () => {
       webPreferences: {
         nodeIntegration: true,
       },
+      icon: __dirname + 'notez-logo.png',
     });
 
     
@@ -62,6 +63,8 @@ const createWindow = () => {
 
   // Build the menu from the template
   const menu = Menu.buildFromTemplate(template);
+
+  
 
   // Set the menu as the application menu
   Menu.setApplicationMenu(menu);

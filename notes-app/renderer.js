@@ -46,33 +46,25 @@ function sendTextToAPI() {
     });
 }
 
-//convert to pdf
+
+
 function latexToPdf() {
-  var outputTextarea = document.getElementById('output-textarea');
-  texCode = outputTextarea.value
+  // Replace 'pythonFile.py' with the actual path to your Python file
+  const pythonProcess = spawn('python', ['python-scripts/generate.py']);
 
-  const outputPath = 'output.pdf';
-  // Create a temporary .tex file
-  const tempFile = 'temp.tex';
-  fs.writeFileSync(tempFile, texCode);
-
-  // Run pdflatex command
-  exec(`pdflatex -interaction=batchmode ${tempFile}`, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error occurred while running pdflatex: ${error}`);
-      return;
-    }
-
-    // Move the generated PDF to the desired output path
-    fs.rename('temp.pdf', outputPath, (error) => {
-      if (error) {
-        console.error(`Error occurred while moving the PDF file: ${error}`);
-        return;
-      }
-
-      console.log(`PDF successfully generated at: ${outputPath}`);
-    });
+  pythonProcess.stdout.on('data', (data) => {
+    console.log(`Python stdout: ${data}`);
   });
+
+  pythonProcess.stderr.on('data', (data) => {
+    console.error(`Python stderr: ${data}`);
+  });
+
+  pythonProcess.on('close', (code) => {
+    console.log(`Python process exited with code ${code}`);
+  });
+
+  
 }
 
 

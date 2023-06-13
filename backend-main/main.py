@@ -1,8 +1,10 @@
 import openai
 import os
 from flask import Flask, request
-from cleaning_functions import remove_chatgpt_nonsense
 import jsonify
+
+from cleaning_functions import remove_chatgpt_nonsense
+from generate import latex_to_pdf
 
 #flash --app main run
 
@@ -45,6 +47,18 @@ def process_text():
     # Return the processed text as a response
     return jsonify({'result': processed_text})
 
+
+@app.route('/generate', methods=['POST'])
+def generate():
+    latex_code = request.get_data(as_text=True)
+    output_file = "output.pdf"
+
+    latex_to_pdf(latex_code, output_file)
+
+    # Host the PDF at a web address
+    pdf_url = "http://your-website.com/output.pdf"  # Replace with the actual URL of your website
+
+    return pdf_url
 
 if __name__ == '__main__':
     app.run()

@@ -21,15 +21,3 @@ def latex_to_pdf(tex_code, output_path):
         return
 
     print(f"PDF successfully generated at: {output_path}")
-
-# Example usage
-latex_code = r"""
-\documentclass{article}
-\begin{document}
-Hello, \LaTeX!
-\end{document}
-"""
-
-output_file = "output.pdf"
-
-latex_to_pdf(latex_code, output_file)
