@@ -2,10 +2,13 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Page Layout</title>
+  <title>Chatex Lite</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
+
+
+  
   <div class="navbar">
     <div class="brand">
       <span>CHATEX</span>
@@ -13,19 +16,29 @@
     </div>
     <div class="navbar-buttons">
       <button class="navbar-button">Settings</button>
-      <button class="navbar-button">Profile</button>
-      <button id="toggle-btn" onclick="toggleCodeOutput()">Toggle</button>
+      <button class="navbar-button" onclick="latexToPdf()">Generate</button>
+      <div class="dropdown">
+        <button class="dropdown-toggle" onclick="toggleDropdown()">Toggle Menu</button>
+        <div id="dropdown-menu" class="dropdown-menu">
+          <a href="#" onclick="toggleSection('text-input')">Text Input</a>
+          <a href="#" onclick="toggleSection('image-section')">Image Section</a>
+          <a href="#" onclick="toggleSection('code-output')">Code Output</a>
+        </div>
+      </div>
     </div>
   </div>
+
+
+
   <div class="container">
-    <div class="text-input">
+    <div class="text-input" id="text-input">
       <textarea id="input-textarea" placeholder="Enter text"></textarea>
     </div>
-    <div class="image-section">
+    <div class="image-section" id="image-section">
       <img src="app://C:/test.jpg" alt="Image">
     </div>
-    <div class="code-output">
-      <textarea id="output-textarea" placeholder="Output text"></textarea>
+    <div class="code-output" id="code-output">
+      <textarea id="output-textarea" placeholder="LaTeX Code"></textarea>
     </div>
   </div>
 

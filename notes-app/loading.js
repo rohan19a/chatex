@@ -1,3 +1,5 @@
+const anime = require('animejs');
+
 document.addEventListener("DOMContentLoaded", function () {
   const loadingText = document.getElementById("loading-text");
 
