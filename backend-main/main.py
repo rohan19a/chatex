@@ -43,13 +43,14 @@ def process_text():
 
     # Perform some processing with the text
     processed_text = text.upper()
+    print(processed_text)
 
     # Return the processed text as a response
-    return jsonify({'result': processed_text})
+    return processed_text
 
 
-@app.route('/generate', methods=['POST'])
-def generate():
+@app.route('/gen', methods=['POST'])
+def gen():
     latex_code = request.get_data(as_text=True)
     output_file = "output.pdf"
 

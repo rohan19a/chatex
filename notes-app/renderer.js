@@ -39,7 +39,8 @@ function sendTextToAPI() {
     .then(response => response.json())
     .then(data => {
       // Process the response from the API
-      console.log(data);
+      displayText(data.text);
+      console.log(data.text);
     })
     .catch(error => {
       console.error('Error:', error);
