@@ -8,7 +8,6 @@ from generate import latex_to_pdf
 
 #flash --app main run
 
-openai.api_key = "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"
 
 #initialize flask app
 app = Flask(__name__)

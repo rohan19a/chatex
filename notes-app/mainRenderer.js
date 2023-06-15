@@ -1,6 +1,5 @@
 const { exec } = require('child_process');
 const fs = require('fs');
-const { ipcRenderer } = require('electron');
 
 
 let dropdownOpen = false;
@@ -48,7 +47,6 @@ function sendTextToAPI() {
     });
 }
 
-/*
 function generatePDF(latexCode) {
   fetch('http://127.0.0.1:5000/generate', {
     method: 'POST',
@@ -66,7 +64,7 @@ function generatePDF(latexCode) {
       console.error('Error:', error);
     });
 }
-*/
+
 
 
 
@@ -136,49 +134,4 @@ function getClipboardText() {
   const text = textarea.value;
   document.body.removeChild(textarea);
   return text;
-}
-
-
-function generatePDF() {
-  latexCode = outputTextarea.value;
-  ipcRenderer.send('generatePDF', latexCode);
-}
-
-
-function generatePDF1() {
-  var outputTextarea = document.getElementById('output-textarea');
-
-  outputTextarea.value += "here";
-
-  latexCode = outputTextarea.value;
-  // Save the LaTeX code to a temporary .tex file
-  const tempFile = 'temp.tex';
-  fs.writeFileSync(tempFile, latexCode);
-
-  outputTextarea.value += "here1";
-
-  // Execute the pdflatex command to generate the PDF
-  const command = `pdflatex -interaction=batchmode ${tempFile}`;
-  exec(command, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Error occurred while generating PDF: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`pdflatex stderr: ${stderr}`);
-      return;
-    }
-    console.log('PDF generated successfully');
-
-    // Move the generated PDF to the desired location
-    const outputFilePath = 'output.pdf';
-    exec(`mv temp.pdf ${outputFilePath}`, (error) => {
-      if (error) {
-        console.error(`Error occurred while moving the PDF file: ${error.message}`);
-        return;
-      }
-      outputTextarea.value += "here3";
-      console.log(`PDF saved at: ${outputFilePath}`);
-    });
-  });
 }
