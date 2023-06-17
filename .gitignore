@@ -1,3 +1,5 @@
 .vscode
 .env
 /zarchive
+/backend-main/__pycache__
+/elements-latex/Elements-latex/node_modules
