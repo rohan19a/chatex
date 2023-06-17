@@ -2,4 +2,9 @@
 .env
 /zarchive
 /backend-main/__pycache__
-/elements-latex/Elements-latex/node_modules
+/elements-latex/Elements-LaTeX/node_modules
+/elements-latex/Elements-LaTeX/assets
+retrograde-ring/.astro
+retrograde-ring/.vscode
+
+
