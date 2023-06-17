@@ -1,0 +1,436 @@
+/* TITLE BAR */
+#titleBar {
+    font-size: 90%;
+    height: 30px;
+    width: 100%;
+    background-color: rgb(22, 22, 30);
+    -webkit-app-region: drag;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#titleBar, #footer {
+    border-color: rgb(19, 19, 25);
+    border-width: 3px;
+    border-style: solid;
+}
+
+#fileName {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#titleAndLogo {
+    background-color: transparent;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+#elementsLabel {
+    color: rgb(207, 215, 255);
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+#simplifiedLogoImage {
+    width: 25px;
+    height: auto;
+    margin-right: 5px;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+
+/* MAIN AND MISC. */
+.resizer {
+    background-color: rgb(19, 19, 25);
+}
+
+.resizer[data-direction='horizontal'] {
+    cursor: ew-resize;
+    height: 100%;
+    width: 3px;
+}
+.resizer[data-direction='vertical'] {
+    cursor: ns-resize;
+    height: 3px;
+    width: 100%;
+}
+
+/* SIDE PANEL */
+#sidePanel {
+    width: 17%;
+    min-width: 14%;
+    max-width: 40%;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+}
+
+#folderStructureLabel, #fileStructureLabel {
+    width: auto;
+    white-space: nowrap;
+    margin-right: 5%;
+    margin-top: 10px;
+}
+
+#folderStructureLabel i, #fileStructureLabel i {
+    margin-right: 7px;
+}
+
+#folderTreePanel, #structureTreePanel {
+    width: 100%;
+    height: 90%;
+    min-height: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tree {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+    font-size: .85rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ICONS CONTAINER AND ITS ICONS */
+.tree .icons-container {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+    width: 25px !important;
+    height: 15px;
+    overflow-x: hidden;
+
+    margin-left: 7px;
+}
+
+.tree .file-tex:hover, .tree .file-pdf:hover {
+    background-color: rgb(61, 89, 161);
+}
+
+.tree .file-other {
+    color: #8b8b8b;
+}
+
+.tree .delete-button {
+    display: none;
+    color: rgb(255, 89, 89);
+    cursor: pointer;
+}
+
+.tree .file:hover .delete-button {
+    display: inline;
+}
+
+.tree .file:hover .file-type-icon {
+    display: none !important;
+}
+
+/* REST OF THE TREE */
+.tree li {
+    list-style-type: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.tree ul {
+    padding-inline-start: 15px;
+}
+
+.tree .closed ul {
+    display: none;
+}
+
+.tree .opened > .fa-angle-right, .tree .closed > .fa-angle-down {
+    display: none;
+}
+
+.tree .opened > .fa-angle-down, .tree .closed > .fa-angle-right {
+    display: inline;
+}
+
+#folderManagementBar, #structureManagementBar {
+    display: flex;
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#folderManagementBar button, #codeCompileBar button {
+    border-radius: 12%;
+    margin: 5px;
+    background-color: rgb(51, 76, 135);
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+#reloadFolderBtn {
+    background-color: transparent !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    width: 20px;
+    height: 20px;
+}
+
+#reloadFolderBtn .fa-arrow-rotate-right {
+    display: none;
+}
+
+#reloadFolderBtn:hover .fa-folder-tree {
+    display: none;
+}
+
+#reloadFolderBtn:hover .fa-arrow-rotate-right {
+    display: inline;
+}
+
+#folderManagementBar button:active, #codeCompileBar button:active {
+    background-color: rgb(43, 45, 79);
+}
+
+#structureTreePanel {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+
+    min-height: 20%;
+}
+
+#structureTree i {
+    position: relative;
+    margin-right: 5px;
+}
+
+
+/* DEVELOPMENT PANEL */
+#devAndFooterContainer {
+    /* Take the remaining width */
+    flex: 1;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+}
+
+#developmentPanel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#codeAndBarPanel {
+    width: 60%;
+    min-width: 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: center;*/
+}
+
+#inputAndErrorsPanel {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#codeInputPanel {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#TextInput {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+code-input {
+    margin: 0px !important;
+    padding: 0px !important;
+
+    font-size: 15px;
+    line-height: 135% !important; /* HYPER PARMAMETER */
+}
+
+#codeInput {
+    height: 80%;
+    width: 100%;
+    min-height: 10%;
+}
+
+#errorsPanel {
+    /*min-height: 40%;
+    flex: 1;*/
+    height: 200px;
+    resize: none;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+    font-family: Courier, monospace;
+    font-size: small;
+
+    background-color: rgb(26, 27, 37) !important;
+    color: rgb(137, 142, 167);
+
+    margin: 1px;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+#errorsPanel .stdout {
+    color: rgb(173, 179, 211);
+}
+
+#errorsPanel .warning {
+    color: rgb(255, 163, 70);
+}
+
+#errorsPanel .stderr {
+    color: rgb(255, 89, 89);
+}
+
+#errorsPanel .compilation-finished {
+    line-height: 28px;
+    color: rgb(61, 89, 161);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-color: rgb(19, 19, 25);
+}
+::-webkit-scrollbar-track {
+    border-color: rgb(19, 19, 25);
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgb(30, 31, 42);
+    border-color: rgb(19, 19, 25);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+
+#codeCompileBar {
+    height: 40px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#pdfViewerPanel {
+    /* Take the remaining width */
+    flex: 1;
+    width: 100%;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    min-width: 20%;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+viewer-pdf-toolbar {
+    display: none !important;
+}
+
+
+/* FOOTER */
+#footer {
+    width: 100%;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+#lineCountLabel, #elementsVersionLabel {
+    text-align: right;
+    margin-left: 15px;
+    margin-right: 15px;
+    white-space: nowrap;
+    font-size: medium;
+}
+
+#lineCountLabel {
+    margin-left: auto;
+}
+
+#footer button {
+    border-radius: 12%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgb(146, 150, 195);
+
+    width: 15px;
+    height: 15px;
+
+    font-size: larger;
+    margin-right: 20px;
+}
+
+#footer button[state="open"] i:first-child {
+    display: inline;
+}
+
+#footer button[state="open"] i:last-child {
+    display: none;
+}
+
+#footer button[state="closed"] i:first-child {
+    display: none;
+}
+
+#footer button[state="closed"] i:last-child {
+    display: inline;
+}
+
+#footer .label {
+    margin-top: 2px;
+}

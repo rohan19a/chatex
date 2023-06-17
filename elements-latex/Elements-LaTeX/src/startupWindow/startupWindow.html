@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elements LaTeX</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./../sharedStyles.css" />
+    <link rel="stylesheet" href="./startupStyles.css" />
+
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+</head>
+<body>
+    <main>
+        <div id="mainArea">
+            <div id="titleContainer">
+                <img class="unselectable" id="logoImage" src="../../assets/ui/logo_fullframe.png" alt="Elements Logo">
+                <h1 class="unselectable">
+                    Elements 
+                    <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
+                </h1>
+                <span id="versionLabel">Version undefined</span>
+            </div>
+
+            <div id="buttonsContainer">
+                <button id="latestWindowBtn" disabled><span class="material-icons"> web </span><span class="text">Latest window</span></button>
+                <!--<button id="createFileBtn" disabled><span class="material-icons"> note_add </span><span class="text">New file</span></button>-->
+                <button id="openFileBtn"><span class="material-icons"> file_open </span><span class="text">Open file</span></button>
+                <button id="openFolderBtn"><span class="material-icons"> create_new_folder </span><span class="text">Open folder</span></button>
+            </div>
+
+            <div id="checkboxContainer">
+                <input type="checkbox" id="openStartupWindowCheck" name="openStartupWindow" value="True" checked>
+                <label for="openStartupWindowCheck">Always show this window on startup</label>
+            </div>
+        </div>
+        <!--<div id="rightPanel">
+            <span>Recent files</span>
+            <ul>
+                <li>File 1</li>
+                <li>File 2</li>
+                <li>File 3</li>
+                <li>File 4</li>
+            </ul>
+        </div>-->
+
+    </main>
+</body>
+</body>
+</html>

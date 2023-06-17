@@ -1,0 +1,50 @@
+{
+  "name": "elements-latex",
+  "product-name": "Elements LaTeX",
+  "version": "0.0.4",
+  "description": "A cross-platform, powerful electron-based LaTeX editor",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "NODE_ENV=development electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "productName": "Elements LaTeX",
+    "appId": "com.elements.latex",
+    "extraResources": [
+      "libs/**"
+    ],
+    "files": [
+      "assets/**",
+      "src/**",
+      "libs/**"
+    ],
+    "artifactName": "elements-latex-${version}-mac.zip",
+    "directories": {
+      "output": "build"
+    },
+    "copyright": "Copyright © 2022 ${author}"
+  },
+  "keywords": [
+    "elements",
+    "latex",
+    "text-editor",
+    "latex-editor"
+  ],
+  "author": "Red-Rapious",
+  "license": "CC-BY-NC-SA-4.0",
+  "repository": "github:Red-Rapious/Elements-LaTeX",
+  "devDependencies": {
+    "electron": "^25.1.0",
+    "electron-builder": "^23.0.3",
+    "electron-context-menu": "^3.3.0",
+    "electron-reloader": "^1.2.3",
+    "electron-settings": "^4.0.2",
+    "fix-path": "3.0.0"
+  },
+  "dependencies": {
+    "electron-context-menu": "^3.3.0",
+    "electron-settings": "^4.0.2",
+    "fix-path": "3.0.0"
+  }
+}

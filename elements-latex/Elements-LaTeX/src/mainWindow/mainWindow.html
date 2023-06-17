@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Import diverse icons sets, will be removed later and replaced by custom icons -->
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        
+        <!-- Import Prism.js for syntax coloration -->
+        <script src="./../libs/prism-js/prism.js"></script>
+        <link href="./../libs/prism-js/prism.css" rel="stylesheet" />
+        <link href="./../libs/prism-js/prism-one-dark.css" rel="stylesheet" />
+        
+        <!-- Import code-input for custom textareas -->
+        <script src="./../libs/code-input-1.0.3/code-input.js"></script>
+        <script>
+          codeInput.registerTemplate("code-input", codeInput.templates.prism(Prism));
+          TextInput.registerTemplate("code-input", codeInput.templates.prism(Prism));
+          </script>
+        <link rel="stylesheet" href="./../libs/code-input-1.0.3/code-input.css">
+        
+        <!-- Import my own stylesheet -->
+        <link rel="stylesheet" href="./../sharedStyles.css" />
+        <link rel="stylesheet" href="./mainStyles.css" />
+
+
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        
+        <title>Elements LaTeX</title>
+      </head>
+    <body>
+
+      <div id="titleBar">
+          <span class="unselectable" id="fileName"> No file opened </span>
+          <button id="titleAndLogo" class="unselectable">
+            <span id="elementsLabel">
+              Elements 
+              <span class="latex">L<sup>a</sup>T<sub>e</sub>X</span>
+            </span>
+            <img id="simplifiedLogoImage" src="../../assets/ui/simplified_logo.png" alt="Simplified Elements Logo">
+          </button>
+      </div>
+
+      <main>
+          <div id="sidePanel">
+              <div id="folderTreePanel">
+                  <div id="folderManagementBar">
+                      <div class="unselectable" id="folderStructureLabel">
+                        <button id="reloadFolderBtn">
+                          <i class="fa fa-folder-tree"></i>
+                          <i class="fa fa-arrow-rotate-right"></i>
+                        </button>
+                        Folder Structure
+                      </div>
+                      <div id="folderButtonsContainer">
+                        <button id="openFileBtn"><span class="material-icons"> file_open </span></button>
+                        <button id="createFileBtn"><span class="material-icons"> note_add </span></button>
+                        <button id="openFolderBtn"><span class="material-icons"> create_new_folder </span></button>  
+                      </div>
+                  </div>
+                  
+                  <div id="folderTree" class="tree unselectable">
+                    <ul><i class="fa fa-angle-right"></i> No folder opened</ul>
+                  </div>
+
+              </div>
+              <div id="folderStructureResizer" class="resizer" data-direction="vertical"></div>
+              <div id="structureTreePanel">
+                <div id="structureManagementBar">
+                  <div class="unselectable" id="fileStructureLabel"><i class="fa fa-code"></i>File Structure</div>
+                </div>
+                <div id="structureTree" class="tree unselectable">
+                  <ul>
+                    <li><i class="fa fa-file"></i>No file opened</li>
+                  </ul>
+                </div>
+              </div>
+
+          </div>
+
+          <div id="sideDevelopmentResizer" class="resizer" data-direction="horizontal"></div>
+
+          <div id="devAndFooterContainer">
+
+              <div id="developmentPanel">
+                  <div id="codeAndBarPanel">
+                    <div id="codeCompileBar">
+                      <button id="compileCodeBtn"><span class="material-icons"> play_arrow </span></button>
+                      <button id="interruptCompileBtn" disabled><span class="material-icons"> pause </span></button>
+                      <button id="showErrorsPanelBtn" state="open"><span class="material-icons"> bug_report </span></button>
+                      <button id="enableChatGPTBtn" state="disabled"><span class="material-icons"> chat </span></button>
+                      <button id="toggleDropdownBtn" state="open"><span class="material-icons"> menu </span></button>
+                    </div>
+                    
+                    <div id="inputAndErrorsPanel"> <!--input box-->
+                      <code-input lang="LaTeX" placeholder="Open a file using the side panel to begin..." value="" id="codeInput"></code-input>
+                      <!--<div id="inputErrorsResizer" class="resizer" data-direction="vertical"></div>-->
+                      <div id="errorsPanel"></div>
+                    </div>
+                    
+                      <div id="TextInput">
+                        <code-input id="TextInput" placeholder="Opens a file using the side panel to begin... value="" id="TextInput"></code-input>
+                      </div>
+                    
+                  </div>
+                  <div id="codePdfResizer" class="resizer" data-direction="horizontal"></div>
+                  <div class="pdf-panel" id="pdfViewerPanel">Opened PDF will show here</div>
+              </div>
+
+              <div id="footer">
+                <button id="sidePanelCloseBtn" state="open">
+                  <i class="fa fa-square-caret-left"></i>
+                  <i class="fa fa-square-caret-right"></i>
+                </button>
+                <span class="label" id="lineCountLabel"><!--Lines: undef--></span>
+                <span class="label" id="elementsVersionLabel">Version undef</span>
+                <button id="pdfViewerCloseBtn" state="open">
+                  <i class="fa fa-square-caret-right"></i>
+                  <i class="fa fa-square-caret-left"></i>
+                </button>
+              </div>
+
+          </div>
+        </main>
+    </body>
+</html>

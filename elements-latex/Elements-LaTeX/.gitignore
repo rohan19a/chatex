@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+.DS_Store
+pdfjs
+*.gz
+*.fls
+*.fdb_latexmk
+assets/demo_latex
+src/libs/code-input-1.0.3
