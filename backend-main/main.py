@@ -4,13 +4,9 @@ from flask import Flask, request
 import jsonify
 
 from cleaning_functions import remove_chatgpt_nonsense
-from generate import latex_to_pdf
 
-#flash --app main run
-
-
-#initialize flask app
 app = Flask(__name__)
+openai = openai.OpenAI(os.environ.get('OPENAI_API_KEY'))
 
 @app.route('/generate', methods=['POST'])
 def generate(plain_text: str):
@@ -31,34 +27,7 @@ def generate(plain_text: str):
 
     return response.choices[0].text
 
-@app.route('/test', methods=['GET'])
-def test():
-    return "Hello World"
-
-@app.route('/post', methods=['POST'])
-def process_text():
-    data = request.get_json()
-    text = data.get('text')
-
-    # Perform some processing with the text
-    processed_text = text.upper()
-    print(processed_text)
-
-    # Return the processed text as a response
-    return processed_text
-
-
-@app.route('/gen', methods=['POST'])
-def gen():
-    latex_code = request.get_data(as_text=True)
-    output_file = "output.pdf"
-
-    latex_to_pdf(latex_code, output_file)
-
-    # Host the PDF at a web address
-    pdf_url = "http://your-website.com/output.pdf"  # Replace with the actual URL of your website
-
-    return pdf_url
 
 if __name__ == '__main__':
     app.run()
+

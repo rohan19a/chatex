@@ -6,5 +6,5 @@
 /elements-latex/Elements-LaTeX/assets
 retrograde-ring/.astro
 retrograde-ring/.vscode
-
-
+*.DS_Store
+.gitignore

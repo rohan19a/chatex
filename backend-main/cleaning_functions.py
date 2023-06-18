@@ -1,5 +1,3 @@
-import os 
-
 def remove_chatgpt_nonsense(input: str) -> str:
     """
     Return only the message between ``` and ``` in the input
