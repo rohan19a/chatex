@@ -44,6 +44,35 @@ const deleteFile = (filePath, checkboxChecked) => {
     });
 };
 
+const handleGPT = () => {
+    const codeWindow = getElementById("codeInput");
+    const textWindow = getElementById("TextInput");
+  
+    // Prepare the data to send in the request
+    const data = {
+      plain_text: textWindow.value,
+    };
+  
+    // Make the API request
+    fetch("/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.text())
+      .then((generatedText) => {
+        // Process the generated text
+        codeWindow.value += generatedText;
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error("Error:", error);
+      });
+  };
+  
+
 const createMainWindow = (previousFile, previousFolder) => {
     mainWindow = new BrowserWindow({
         width: 1600,
@@ -216,6 +245,7 @@ const createMainWindow = (previousFile, previousFolder) => {
                 label: "ChatGPT",
                 enabled: false,
                 click: () => {
+                    handleGPT();
                 }
             }),
             new TouchBarSpacer({ size: 'small' }),
