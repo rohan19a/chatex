@@ -1,4 +1,4 @@
-#ChaTex is a text editor for LaTeX documents built with Electron. 
+# ChaTex is a text editor for LaTeX documents built with Electron. 
 
 Key features include:
 - Live preview: As the user types LaTeX code, ChaTex renders the result as a PDF preview using the pdf.js library. This allows seeing the formatted output update in real-time.
